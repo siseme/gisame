@@ -28,12 +28,13 @@ public class News extends BaseEntity implements Serializable {
     private String content;
     private String originalLink;    //언론사 url
     @Lob
-    private String subLink;         //???서브 url?
+    private String thumbnail;         //???서브 url?
     private LocalDate pubDate;
 
     private String regionCode;
+    @Lob
     private String summary;
-
+    private String press;   //언론사 추가
 
     @Enumerated(EnumType.STRING)
     private KeywordType searchKeyword;
@@ -44,21 +45,29 @@ public class News extends BaseEntity implements Serializable {
     @Override
     public String toString() {
         return "News{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", originalLink='" + originalLink + '\'' +
-                ", subLink='" + subLink + '\'' +
-                ", pubDate=" + pubDate +
-                ", regionCode='" + regionCode + '\'' +
-                ", searchKeyword='" + searchKeyword + '\'' +
-                ", summary='" + summary + '\'' +
-                ", newsType='" + newsType + '\'' +
-                '}';
+            "id=" + id +
+            ", title='" + title + '\'' +
+            ", content='" + content + '\'' +
+            ", originalLink='" + originalLink + '\'' +
+            ", thumbnail='" + thumbnail + '\'' +
+            ", pubDate=" + pubDate +
+            ", regionCode='" + regionCode + '\'' +
+            ", searchKeyword='" + searchKeyword + '\'' +
+            ", summary='" + summary + '\'' +
+            ", newsType='" + newsType + '\'' +
+            '}';
     }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
+    }
+
+    public String getPress() {
+        return press;
+    }
+
+    public void setPress(String press) {
+        this.press = press;
     }
 
     public Long getId() {
@@ -93,12 +102,12 @@ public class News extends BaseEntity implements Serializable {
         this.originalLink = originalLink;
     }
 
-    public String getSubLink() {
-        return subLink;
+    public String getThumbnail() {
+        return thumbnail;
     }
 
-    public void setSubLink(String subLink) {
-        this.subLink = subLink;
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
     public LocalDate getPubDate() {
